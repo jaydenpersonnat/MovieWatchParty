@@ -1,0 +1,130 @@
+
+.page_setup
+{
+    background: rgb(10,75,99);
+    background: radial-gradient(circle, rgb(94, 0, 0, 1) 0%, rgb(75, 0, 0, 1) 18%, rgb(68, 0, 0, 1) 35%, rgb(68, 0, 0, 1) 65%, rgb(0, 0, 0, 1)100%);
+}
+
+
+.title_list{
+    display: inline-block;
+    margin-left: 225px;
+}
+
+.title_setup
+{
+    font-weight: bold;
+    font-family: "Outfit";
+    text-align: center;
+    color: white;
+}
+
+
+.text_setup
+{
+    font-weight: bold;
+    font-family: "Outfit"; 
+    color: white;
+}
+
+.fields
+{
+    margin-top: 3.125em;
+}
+
+.messages 
+{
+    margin-top: 250px;
+}
+
+.logo 
+{
+  width: 300px;
+  height: 300px;   
+  margin-top: 10px;
+}
+
+.item
+{
+    width: 1110px;
+    height: 600px;
+}
+
+.button
+{
+    color: white;
+    background-color: black;
+    padding: 5px;
+}
+
+.input
+{
+    color: black;
+}
+
+.carousel-caption
+{
+    background-color: black;
+    max-width: 500px;
+    margin: auto;
+}
+
+.request
+{
+   margin-top: 100px; 
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+    height: auto; /* or however you want it*/
+    width: 700px; /* so that the image ratio stays the same*/
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* On mouse-over, add a deeper shadow */
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+  }
+  
+  /* Add some padding inside the card container */
+  .container {
+    text-align: center;
+  }
+  
+  .img {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .subheader
+  {
+      margin-top: 0px;
+      font-size: 70px;
+      text-shadow: 2px 5px 5px red;
+  }
+
+.profile
+{
+    border-radius: 50%;
+}
+
+#search_btn
+{
+    visibility: hidden;
+}
+
+.search-bar
+{
+    float: right;
+    margin-top: 10px;
+}
+
+.center-button
+{
+    display: block;
+    margin-left: 42%;
+}
