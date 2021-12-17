@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+
+        <form action = "/follow" method = "post">
+            <input type = "hidden" id = "follow" name = "follow" value = "2">
+            <input type = "submit" value = "Follow">
+        </form>
+
+{% endblock %}
+    

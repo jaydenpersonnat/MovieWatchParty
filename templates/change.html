@@ -1,0 +1,61 @@
+{% extends "layout.html" %} 
+
+
+{% block title %} 
+
+
+{% endblock %}  
+
+
+{% block main %}  
+
+<h3 class = "subheader">Update Profile</h3>
+<br><br>
+<form action="/update" method = "post" enctype="multipart/form-data">
+    <label for="username">Username:</label>
+    <input  class = "input" type="text" id="username" name="username" value="{{ info.username }}" required><br><br>
+
+    <label for="first_name">First Name: </label>
+    <input class = "input" type="text" id="first_name" name="first_name" value="{{ info.first_name}}" required><br><br>
+
+    <label for="last_name">Last Name: </label>
+    <input class = "input" type="text" id="last_name" name="last_name" value="{{ info.last_name}}" required><br><br>
+
+    <label for="dorm">Dorm: </label>
+    <select name = "dorm" class = "input">
+        <option selected value = "{{info.dorm}}">{{ info.dorm}}</option>
+        {% for dorm in dorms %}
+        {% if dorm != cur_dorm %}
+            <option value = "{{ dorm }}">{{ dorm }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+
+    <br><br>
+
+    <label for="genre">Favorite Genre: </label>
+    <select name = "genre" class = "input">
+        <option selected value = "{{info.genre}}">{{ info.genre}}</option>
+        {% for genre in genres %}
+        {% if genre != fav_genre %}
+            <option value = "{{ genre }}">{{ genre }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+
+<br><br>
+    <label for="year">Class Year: </label>
+    <input class = "input" type="text" id="year" name="year" value="{{ info.year }}" required><br><br>
+
+    <label for = "image">Select image</label>
+    <br><br>
+    <div>
+        <input type="file" name="image" id="image" class="center-button" multiple accept="image/*">
+    </div>
+    <br><br>
+
+    <input class = "button" type="submit" value="Update">
+  </form>
+  
+
+{% endblock %}

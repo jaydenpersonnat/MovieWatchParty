@@ -1,0 +1,40 @@
+{% extends "layout.html" %} 
+
+
+{% block title %} 
+
+{% endblock %}  
+
+
+{% block main %}  
+
+<div class="media">
+    <!-- uses the media-left from bootstrap to put text to the right of the image -->       
+</div>
+
+{% for profile in profiles %}
+        <br>
+        <h3>{{ profile.username }}</h3><br>
+        <div class="media-center">
+            <br>
+            <!-- inputs an image from the computer and sets it to the class from bootstrap called media-object, sets the width and height of the image, and then increases the space between the image and the text-->
+            <img class= "profile" src="/static/images/{{profile.image}}" class="media-object" width="300" height="300" style="margin-left: auto; margin-right: auto"></img>
+            <br><br>
+            <h4 class="media-heading">{{ profile.first_name}} {{ profile.last_name }}</h4>     
+            <h4 class="media-heading">Dorm: {{ profile.dorm }} </h4> 
+            <h4 class="media-heading">Class Year: {{ profile.year }} </h4>      
+     
+ 
+            <br>
+        <form action = "/match" method = "post">
+            <input type = "hidden" id = "friend" name = "friend" value = "{{profile.id}}">
+            <button class= "button" type = "submit">Follow</button>
+        </form>
+        <br><br>
+        </div>    
+    {% endfor %}
+
+
+{% endblock %}
+
+    

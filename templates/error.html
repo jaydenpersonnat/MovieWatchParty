@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}  
+Error 
+{% endblock %}
+
+
+{% block main %}
+<h3>{{code}}</h3>  
+<p> {{ message }} </p>
+<br>
+    {% if profile == False %}
+
+<a  href = "/create"><button class = "button">Create Profile</button></a>
+
+    {% endif %}
+
+    {% if match_pg == True %}
+
+    <a  href = "/match"><button class = "button">Go Back</button></a>
+    
+        {% endif %}
+
+{% endblock %}
+    

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Invites
+{% endblock %}
+
+{% block main %}
+    <div class="invite">
+        <div class="centered">
+            <div style= "color: black" class="card">
+                <img src="/static/images/invited.png"  style="width:100%; height: auto">
+                <div style= "text-align: center" class="container"></div>
+                  <h3> to </h3>
+                  <h1><b>"{{ events.movie }}"</b></h1>
+                  <h3> watch party </h3>
+                  <h4> Hosted by: {{ events.fullname }} </h4>
+                  <h4> Located at: {{ events.location }} </h4>
+                  <h4> Time: {{ events.date }} at {{ time }}</h4>
+                  <br><br>
+                </div>
+              </div>
+        </div>
+        <br>
+        <form action = "/rsvp" method = "post">
+            <input type = "hidden" id = "rsvp" name = "rsvp" value = "{{ events.event_id }}">
+            <button class= "button" type = "submit">RSVP</button>
+        </form>
+    </div>
+{% endblock %}

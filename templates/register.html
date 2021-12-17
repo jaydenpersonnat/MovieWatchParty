@@ -1,0 +1,42 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+    <title>register</title>
+
+    </head>
+
+    <body> -->
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+        
+<img class = "logo" src = "/static/images/logo.png">
+        <form class = "fields" action = "/register" method = "post">
+        <div class = "mb-3">
+            <input class="form-control mx-auto w-auto" autocomplete = "off" autofocus id="username" name="username" placeholder="Username" type="text" required autofocus>
+        </div>
+        <div class = "mb-3">
+            <input class="form-control mx-auto w-auto" id="password" name="password" placeholder="Password" type="password" required autofocus>
+        </div>
+        <div class = "mb-3">
+            <input class="form-control mx-auto w-auto" id="confirmation" name="confirmation" placeholder="Password (again)" type="password" required autofocus>
+
+            <br> 
+        </div>
+            <button class="button" type="submit">Register</button>
+        </form>
+ {% endblock %}
+
+    
+    <!-- </body>
+
+</html> -->

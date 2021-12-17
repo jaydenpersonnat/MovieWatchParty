@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create Profile
+{% endblock %}
+
+{% block main %}
+           
+<h3 class = "subheader">Create Profile</h3>
+
+    <form action = "/create" method = "post" enctype="multipart/form-data">
+        <input class = "input" autocomplete = "off" autofocus id="first_name" name="first_name" placeholder="First Name" type="text" required autofocus>
+        <input class = "input" autocomplete = "off" autofocus id="last_name" name="last_name" placeholder="Last Name" type="text" required autofocus>
+        <input class = "input" autocomplete = "off" autofocus id="year" name="year" placeholder="Graduation Year" type="number" min = "2022" max = "2027" required autofocus>
+            <select class = "input" name = "dorm">
+                <option  disabled selected value = "Dorm">Dorm</option>
+                {% for dorm in dorms %}
+                <option value = "{{ dorm }}"> {{ dorm }}</option>
+                {% endfor %}
+            </select>
+
+            <!-- maybe use for loop to cut down later -->
+            <select class = "input" name = "top_genre">
+                <option disabled selected value = "First Genre">First Genre</option>
+                {% for genre in genres %}
+                <option value = "{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+            
+            <select class = "input" name = "second_genre">
+                <option disabled selected value = "Second Genre">Second Genre</option>
+                {% for genre in genres %}
+                <option value = "{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+
+            <select class = "input" name = "third_genre">
+                <option disabled selected value = "Third Genre">Third Genre</option>
+                {% for genre in genres %}
+                <option value = "{{ genre }}">{{ genre }}</option>
+                {% endfor %}
+            </select>
+
+            <br>
+            <br>
+
+                <label>Select image</label>
+                <br><br>
+                <input type="file" name="image" id="image" class="center-button" multiple accept="image/*">  
+                <br><br>           
+                <button class="button" type="submit">Submit</button>
+        </form>
+    </form>
+{% endblock %}

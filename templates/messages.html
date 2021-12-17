@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<h3 class = "subheader">Notifications</h3>
+
+<br>
+
+<h3>Requests</h3>
+
+<div class = "request">
+   {% for request in requests %}
+     <p> 
+        You got a follow request from {{ request.first_name }} {{ request.last_name }}
+    </p> 
+
+    <form action = "/message" method = "post">
+        <input type = "hidden" id = "friend" name = "friend" value = "{{ request.sender_id }} ">
+        <button class= "button" type = "submit">Accept</button>
+
+    </form>
+    <br>
+
+    <form action = "/message" method = "post">
+        <input type = "hidden" id = "friend" name = "friend" value = "{{ -1 * request.sender_id }} ">
+       
+        <button class= "button" type = "submit">Decline</button>
+
+    </form>
+
+    {% endfor %}
+
+</div>
+
+<div class = "messages">
+<h3> Messages</h3>
+
+{% for message in messages %}  
+    <p> {{ message.message }} by {{ message.first_name }} {{  message.last_name }}</p>
+
+    <form action = "/message" method = "post">
+        <input type = "hidden" id = "delete" name = "delete" value = "{{ message.message_id }} ">
+        <button class= "button" type = "submit">Clear</button>
+    </form>
+
+{% endfor %}
+
+</div>
+
+<div class = "invites">
+
+<h3 class = "messages">Invites</h3>
+    {% for invite in invites %}
+    <p> You got an invite from {{ invite.first_name }} {{ invite.last_name }}</p>
+    <form action = "/message" method = "post">
+        <input type = "hidden" id = "invite" name = "invite" value = "{{ invite.event_id }}">
+        <button class= "button" type = "submit">See Event</button>
+</form>
+<br>
+<form action = "/message" method = "post">
+    <input type = "hidden" id = "clear" name = "clear" value = "{{ invite.event_id }} ">
+   
+    <button class= "button" type = "submit">Clear</button>
+</form>
+
+<br>
+    {% endfor %}
+
+
+{% endblock %}
+    

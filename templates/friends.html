@@ -1,0 +1,52 @@
+{% extends "layout.html" %} 
+
+
+{% block title %} 
+Friends
+{% endblock %}  
+
+
+{% block main %}  
+
+<div class="media">
+    <!-- uses the media-left from bootstrap to put text to the right of the image -->       
+</div>
+<h3 class = "subheader">Friends</h3>
+<br> <br>
+<table class="table table-hover table-light">
+    <thead class="thead-dark" >
+      <tr>
+        <th class = "text-center" scope="col">Username</th>
+        <th class = "text-center" scope="col">First Name</th>
+        <th class = "text-center" scope="col">Last Name</th>
+        <th class = "text-center" scope = "col">Dorm</th>
+        <th class = "text-center" scope = "col">View Profile</th>
+        <th class = "text-center" scope = "col">Unfriend</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name}} </td>
+        <td>{{ user.dorm }} </td>
+        <td><form action = "/view" method = "post">
+          <input type = "hidden" id = "profile" name = "profile" value = "{{ user.id }} ">
+          <button class= "button" type = "submit">View Profile</button>
+      </form></td>
+        <td> 
+          <form action = "/unfriend" method = "post">
+            <input type = "hidden" id = "unfriend" name = "unfriend" value = "{{ user.id }} ">
+            <button class= "button" type = "submit">Unfriend</button>
+        </form>
+           </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+      
+
+
+
+{% endblock %}

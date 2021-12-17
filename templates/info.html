@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Info
+{% endblock %}
+
+{% block main %}
+
+<h3 class = "subheader">Event Details</h3>
+
+    <div class="invite">
+        <div class="centered">
+        <h1 style="text-decoration: overline;"> "{{ events.movie }}" Watch Party </h1>
+        <br>
+        <h4> hosted by: {{ events.fullname }} </h4>
+        <h4> located at: {{ events.location }} </h4>
+        <h4> Time: {{ events.date }} at {{ time }}</h4>
+        
+        <br>
+        <h2 style="text-decoration: overline;">Description</h2>
+        <p>{{ events.description }}</p>
+        </div>
+    <br>
+    <br>
+        <h2 style="text-decoration: overline;"> Attendees</h2>
+
+        {% for name in people %}
+            <p>{{ name.first_name}} {{ name.last_name }}</p>
+            
+        {% endfor %}
+
+    <br><br>
+
+    {% if events.host_id == session["user_id"] %} 
+    <form action = "/cancel" method = "post">
+        <input type = "hidden" id = "cancel" name = "cancel" value = "{{ events.event_id }} ">
+       
+        <button class= "button" type = "submit">Cancel Event</button>
+    </form>
+
+    {% endif %}
+    </div>
+{% endblock %}

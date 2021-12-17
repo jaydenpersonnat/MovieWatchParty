@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Movie Planner
+{% endblock %}
+
+{% block main %}
+
+<h3 class = "subheader">Movie Planner</h3>
+
+<br><br>
+
+    <form action = "/planner" method = "post" enctype="multipart/form-data">
+        <input class = "input" autocomplete = "off" autofocus id="fullname" name="fullname" placeholder="Full Name" type="text" required>
+        <input class = "input" autocomplete = "off" autofocus id="movie" name="movie" placeholder="Movie Title" type="text" required> 
+        <input class = "input" autocomplete = "off" autofocus id="date" min="{{ tmr }}"  name="date" placeholder="Date" type="date" required>
+        <input class = "input" autocomplete = "off" autofocus id="time" name="time" placeholder="Time" type="time" required>
+        <input class = "input" autocomplete = "off" autofocus id="location" name="location" placeholder="Location" type="text" required>
+      
+        <br><br>
+
+        <p>Invite: <p>
+        {% for user in users %}
+            <input class = "input" type = "checkbox" id = "invites" name = "invites" value = "{{ user.id }}">
+            <label for="invites">{{ user.first_name }} {{ user.last_name }}</label>
+        
+        {% endfor %}
+        <br>
+        <br>
+            <input class = "input" autocomplete = "off" autofocus id="description" name="description" placeholder="Event Details (optional)" size = "138" type="text">
+        <br>
+        <br>
+
+        <div>
+            <label>Select image</label>
+            <br><br>
+            <div >
+              <input type="file" name="image" id="image" class="center-button" accept="image/*">
+              <br><br>
+          
+            </div>
+          </div>  
+            <button class= "button" type = "submit">Submit</button>
+        </form>
+
+{% endblock %}

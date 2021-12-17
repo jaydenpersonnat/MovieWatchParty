@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Profile 
+{% endblock %}
+
+{% block main %}
+<h3 class = "subheader">Profile</h3>
+        <br>
+        <img class= "profile" src = "/static/images/{{ user.image }}" width = "300" height = "300">
+
+        <br> <br>
+        <p> Username: {{ user.username }}</p>
+        <p> Friends: {{ user.friends }} </p>
+        <p> Name: {{ user.first_name }} {{ user.last_name }} </p>
+        <p> Dorm: {{ user.dorm }}</p>
+        <p> Favorite Genre: {{ user.genre }}</p>
+        <p> Class Year: {{ user.year }}</p>
+
+        {% if not view %}
+        <form action = "/change" method = "post">
+                <input type = "hidden" id = "change" name = "change" value = "{{ user.id }}">
+                <button class= "button" type = "submit">Change Profile</button>
+            </form>
+        {% endif %}
+{% endblock %}

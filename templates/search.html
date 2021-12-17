@@ -1,0 +1,40 @@
+{% extends "layout.html" %} 
+
+
+{% block title %} 
+
+{% endblock %}  
+
+
+{% block main %}  
+
+<div class="media">
+    <!-- uses the media-left from bootstrap to put text to the right of the image -->       
+</div>
+
+{% for user in users %}
+        <br>
+        <h3>{{ user.username }}</h3><br>
+        <div class="media-center">
+            <br>
+            <!-- inputs an image from the computer and sets it to the class from bootstrap called media-object, sets the width and height of the image, and then increases the space between the image and the text-->
+            <img class= "profile" src="/static/images/{{user.image}}" class="media-object" width="300" height="300" style="margin-left: auto; margin-right: auto"></img>
+            <br><br>
+            <h4 class="media-heading">{{ user.first_name}} {{ user.last_name }}</h4>     
+            <h4 class="media-heading">Dorm: {{ user.dorm }} </h4> 
+            <h4 class="media-heading">Class Year: {{ user.year }} </h4>      
+     
+ 
+            <br>
+        <form action = "/follow" method = "post">
+            <input type = "hidden" id = "follow" name = "follow" value = "{{user.id}}">
+            <button class= "button" type = "submit">Follow</button>
+        </form>
+        <br><br>
+        </div>    
+    {% endfor %}
+
+
+{% endblock %}
+
+    
